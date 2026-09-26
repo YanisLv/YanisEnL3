@@ -1,0 +1,24 @@
+TD1 réseaux 
+Exercice 1)
+1)
+Un terminal permet à l'utilisateur d'envoyer ou de recevoir des données/ communiquer avec d'autres utilisateurs via leur terminaux respectifs. Les ordinateurs et les téléphones sont des terminaux.
+Un serveur permet le transit de ces données entre terminaux (envoi, reception)
+Un serveur web n'est pas un terminal car un utilisateur ne peut pas l'utiliser directement.
+
+
+2) Le protocole TCP.
+
+3)  2^5* 2^10* 2^10 * 2^3 = 2^28
+
+4) Un réseau par commutation de circuit peut garantir une certaine quantité totale de bande passante de "bout en bout" pour la durée de l'appel. La plupart des réseaux par commutation par paquet aujourd'hui (en incluant Internet) ne peuvent pas garantie une bande passante de bout en bout.
+
+5) le client prend l'initiative de demander, le rôle d'un client
+
+6) Application / Transport / Réseau / Liaison / Physique . Réseau / Liaison / Physique
+
+EXERCICE 2)
+
+1) 	
+  
+2)
+
