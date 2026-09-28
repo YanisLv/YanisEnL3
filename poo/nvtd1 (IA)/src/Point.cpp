@@ -1,9 +1,4 @@
-#include "geoobj.h"
-#include<iostream>
-#include<cmath>
-// ----------------------- RESSOURCES TD1------------------------
-// remplacé par IA à revoir  
-#include "geoobj.h"
+#include "Point.h"
 #include <iostream>
 #include <cmath>
 
@@ -173,7 +168,3 @@ void ListP::print()
         i++;
     }
 }
-///////////////////////////////////////////////////////////////////////////////
-
-//----------------TD2------+-------------------------------------------------
-

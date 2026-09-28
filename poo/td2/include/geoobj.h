@@ -1,29 +1,37 @@
 
 // ----------------------- RESSOURCES TD1------------------------
-class Point{
-    private:
-        double x{},y{};
-    public:
-        Point(double x, double y);
-        void print()const;
-        double distance(Point a, Point b) const;
-        Point center(Point a, Point b) const;
+// remplacé par IA à revoir  
+class Point {
+private:
+    double x{}, y{};
+
+public:
+    Point(double x, double y);
+    void print() const;
+    double distance(Point a, Point b) const;
+    Point center(Point a, Point b) const;
 };
 
-class ListP{
-    private:
-        struct list{
-            Point pt;
-            struct list* next;
-        }; list *head; // voir à quoi la sert la tête
-    public:
-        bool isempty();
-        void push_pos(int pos, Point p, struct list **L);
-        void delete_pos(int pos);
-        int size();
-        void print();
-};
 
+class ListP {
+private:
+
+    struct list {
+        Point pt;
+        struct list *next;
+    };
+
+    list *head;
+
+public:
+    ListP();
+
+    bool isempty();
+    void push_pos(int pos, Point p);
+    void delete_pos(int pos);
+    int size();
+    void print();
+};
 
 
 // ------------------------------------------------------------------
@@ -52,9 +60,9 @@ class polygone : public GeoObj{
     private:
         ListP pts;
     public:
-        void translate() override;
-        void rotate() override;
-        void dilatation() override;
+        void translate(double a, double b) override;
+        void rotate(double theta, Point centre) override;
+        void dilatation(Point centre, double k) override;
 
 };
 
