@@ -3,9 +3,6 @@
 #include<cmath>
 // ----------------------- RESSOURCES TD1------------------------
 // remplacé par IA à revoir  
-#include "geoobj.h"
-#include <iostream>
-#include <cmath>
 
 
 // =======================
@@ -176,4 +173,35 @@ void ListP::print()
 ///////////////////////////////////////////////////////////////////////////////
 
 //----------------TD2------+-------------------------------------------------
+polygone::polygone(){
+    
+}
+segment::segment(Point a, Point b){
+    this->p1 = a;
+    this->p2 = b;
+}
 
+triangle::triangle(Point a, Point b, Point c){
+    pts.push_pos(1,a);
+    pts.push_pos(2,b);
+    pts.push_pos(3,c);
+}
+
+rectangle::rectangle(Point a, Point b, Point c, Point d){
+    pts.push_pos(1,a);
+    pts.push_pos(2,b);
+    pts.push_pos(3,c);
+
+}
+
+carree::carree(Point a, Point b, Point c, Point d){
+    this->p1 = a;
+    this->p2 = b;
+    this->p3 = c;
+    this->p4 = d;
+}
+
+cercle::cercle(Point O_coord, double rayon_coord){
+    this->O = O_coord;
+    this->rayon = rayon_coord;
+}

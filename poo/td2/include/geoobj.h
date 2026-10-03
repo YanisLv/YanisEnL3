@@ -1,4 +1,3 @@
-
 // ----------------------- RESSOURCES TD1------------------------
 // remplacé par IA à revoir  
 class Point {
@@ -6,6 +5,7 @@ private:
     double x{}, y{};
 
 public:
+    Point() = default; // VOIR AVEC IA A QUOI CA SERT (constructeur par défaut ?)
     Point(double x, double y);
     void print() const;
     double distance(Point a, Point b) const;
@@ -36,7 +36,7 @@ public:
 
 // ------------------------------------------------------------------
 
-//------------------TD2-------------------------
+//------------------TD2----------------------------------------------
 class GeoObj{
     private:
 
@@ -51,7 +51,7 @@ class segment : public GeoObj{
        Point p1;
        Point p2; 
     public:
-        
+        segment(Point p1, Point p2);
 
 
 };
@@ -63,26 +63,29 @@ class polygone : public GeoObj{
         void translate(double a, double b) override;
         void rotate(double theta, Point centre) override;
         void dilatation(Point centre, double k) override;
-
+        polygone();
 };
 
 
 class triangle : public polygone{
     private:
-        Point p1, p2, p3;
+        //Point p1, p2, p3; FAUX SI ON UTILISE UNE LISTE DE POINTS DE POLYGONE
     public:
+        triangle(Point p1, Point p2, Point p3);
 };
 
 class rectangle : public polygone{
     private:
-        Point p1, p2, p3, p4;
+        //Point p1, p2, p3, p4; FAUX SI ON UTILISE UNE LISTE DE POINTS DE POLYGONE
     public:
+        rectangle(Point p1, Point p2, Point p3, Point p4);
 };
 
 class carree : public polygone{
     private:
-        Point p1, p2, p3, p4;
+        //Point p1, p2, p3, p4;FAUX SI ON UTILISE UNE LISTE DE POINTS DE POLYGONE
     public:
+        carree(Point p1, Point p2, Point p3, Point p4);
 };
 
 class cercle : public GeoObj{
@@ -90,4 +93,5 @@ class cercle : public GeoObj{
         Point O;
         double rayon;
     public:
+        cercle(Point O, double rayon);
 };
