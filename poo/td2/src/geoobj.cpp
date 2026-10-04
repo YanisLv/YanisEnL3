@@ -170,12 +170,19 @@ void ListP::print()
         i++;
     }
 }
+void polygone::print(){
+    pts.print();
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 
 //----------------TD2------+-------------------------------------------------
-polygone::polygone(){
-    
-}
+/*IGNORE LEUR SMR*/
+polygone::polygone(){}
+
+
+
 segment::segment(Point a, Point b){
     this->p1 = a;
     this->p2 = b;
@@ -187,6 +194,7 @@ triangle::triangle(Point a, Point b, Point c){
     pts.push_pos(3,c);
 }
 
+
 rectangle::rectangle(Point a, Point b, Point c, Point d){
     pts.push_pos(1,a);
     pts.push_pos(2,b);
@@ -195,13 +203,61 @@ rectangle::rectangle(Point a, Point b, Point c, Point d){
 }
 
 carree::carree(Point a, Point b, Point c, Point d){
-    this->p1 = a;
-    this->p2 = b;
-    this->p3 = c;
-    this->p4 = d;
+    pts.push_pos(1,a);
+    pts.push_pos(2,b);
+    pts.push_pos(3,c);
+    pts.push_pos(4,d);
 }
 
 cercle::cercle(Point O_coord, double rayon_coord){
     this->O = O_coord;
     this->rayon = rayon_coord;
+}
+
+// TRANSFORMATIONS 🕺🏼
+
+void Point::translate(double a, double b){
+    this->x += a, this->y += b;
+}
+
+void polygone::translate(double a, double b){
+    auto courant = pts.head;
+    while(courant != nullptr){
+        courant->pt.translate(a,b);
+        courant = courant->next;
+    }
+}
+
+
+void Point::rotate(double theta, Point centre){
+    double tmp_X = this->x - centre.x;
+    double tmp_Y = this->y - centre.y;
+    
+    double X = tmp_X*cos(theta) - tmp_Y * sin(theta);
+    double Y = tmp_X*sin(theta) + tmp_Y * cos(theta);
+
+    this->x = centre.x + X;
+    this->y = centre.y + Y;
+}
+
+void polygone::rotate(double theta, Point centre){
+    auto courant = pts.head;
+    while(courant != nullptr){
+        courant->pt.rotate(theta, centre);
+        courant = courant->next;
+    }
+}
+
+void Point::dilatation(Point centre, double k){
+    double tmp_x = this->x, tmp_y = this->y;
+    this->x = centre.x +k*(tmp_x-centre.x);
+    this->y = centre.y +k*(tmp_y-centre.y);
+}
+
+void polygone::dilatation(Point centre, double k){
+    auto courant = pts.head;
+    while(courant != nullptr){
+        courant->pt.dilatation(centre, k);
+        courant = courant->next;
+    }
 }

@@ -10,27 +10,34 @@ public:
     void print() const;
     double distance(Point a, Point b) const;
     Point center(Point a, Point b) const;
+
+    //transfo
+    void translate(double a, double b); // zebi voir pk j'ai fait ça
+    void rotate(double theta, Point centre);
+    void dilatation(Point centre, double k);
+
 };
 
 
 class ListP {
-private:
+    friend class polygone;
+    private:
 
-    struct list {
-        Point pt;
-        struct list *next;
-    };
+        struct list {
+            Point pt;
+            struct list *next;
+        };
 
-    list *head;
+        list *head;
 
-public:
-    ListP();
+    public:
+        ListP();
 
-    bool isempty();
-    void push_pos(int pos, Point p);
-    void delete_pos(int pos);
-    int size();
-    void print();
+        bool isempty();
+        void push_pos(int pos, Point p);
+        void delete_pos(int pos);
+        int size();
+        void print();
 };
 
 
@@ -57,12 +64,14 @@ class segment : public GeoObj{
 };
 
 class polygone : public GeoObj{
-    private:
+    protected:
         ListP pts;
     public:
         void translate(double a, double b) override;
         void rotate(double theta, Point centre) override;
         void dilatation(Point centre, double k) override;
+
+        void print();
         polygone();
 };
 
