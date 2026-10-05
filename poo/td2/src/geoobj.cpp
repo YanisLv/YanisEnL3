@@ -179,7 +179,10 @@ void polygone::print(){
 
 //----------------TD2------+-------------------------------------------------
 /*IGNORE LEUR SMR*/
-polygone::polygone(){}
+
+polygone::polygone(){
+    
+}
 
 
 
@@ -199,7 +202,7 @@ rectangle::rectangle(Point a, Point b, Point c, Point d){
     pts.push_pos(1,a);
     pts.push_pos(2,b);
     pts.push_pos(3,c);
-
+    pts.push_pos(4,d);
 }
 
 carree::carree(Point a, Point b, Point c, Point d){

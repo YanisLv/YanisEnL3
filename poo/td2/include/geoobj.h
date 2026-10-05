@@ -12,7 +12,7 @@ public:
     Point center(Point a, Point b) const;
 
     //transfo
-    void translate(double a, double b); // zebi voir pk j'ai fait ça
+    void translate(double a, double b); //voir pk j'ai fait ça
     void rotate(double theta, Point centre);
     void dilatation(Point centre, double k);
 
@@ -74,6 +74,9 @@ class polygone : public GeoObj{
         void print();
         polygone();
 };
+
+
+
 
 
 class triangle : public polygone{
