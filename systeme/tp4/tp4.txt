@@ -1,0 +1,11 @@
+2. On utilise free --mega (ou free total --mega)
+    il y a 15423 Mo au total et 10230 Mo libres
+
+4.  Les taux de mémoire utilisés, libres et disponibles diffèrent de ≈ 500Mo (soit la taille allouée dans notre programme)
+    Utilisé : 3981 -> 4516, Libre : 8602 -> 8069, Dispo : 11442 -> 10907.
+    Lorsque le programme s'arrête, on récupère nos ≈ 500Mo de mémoire disponibles.
+    Les chiffres correspondent a nos attentes vu qu'il s'agit plus ou moins de la quantité de Mo qu'on souhaitait manipuler
+    Et correspondent aussi lorsqu'on souhaite manipuler 1000Mo (les résultats diffèrent de ≈ 1000Mo)
+    Mais lorsque je fais une plus grande quantité : 3000Mo, le programme n'affecte pas la mémoire, free ne montrent aucune différence de quantité de mémoire utilisé.
+    Le programme est-il ignoré?
+

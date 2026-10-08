@@ -1,0 +1,127 @@
+[4mFREE[24m(1)                                     Commandes de l'utilisateur                                    [4mFREE[24m(1)
+
+[1mNOM[0m
+       free - Afficher la quantité de mémoire libre et utilisée du système
+
+[1mSYNOPSIS[0m
+       [1mfree [22m[[4moptions[24m]
+
+[1mDESCRIPTION[0m
+       [1mfree  [22maffiche  la  quantité totale de mémoire physique et d'espace d'échange libre et utilisée par le sys‐
+       tème, ainsi que les tampons et caches utilisés par le noyau. Les renseignements sont rassemblés en  analy‐
+       sant [4m/proc/meminfo[24m. Les colonnes affichées sont les suivantes.
+
+       [1mtotal  [22mTotal  usable memory (MemTotal and SwapTotal in /proc/meminfo). This includes the physical and swap
+              memory minus a few reserved bits and kernel binary code.
+
+       [1mused   [22mUsed or unavailable memory (calculated as [1mtotal [22m- [1mavailable[22m)
+
+       [1mfree   [22mMémoire inutilisée (MemFree et SwapFree dans [4m/proc/meminfo[24m)
+
+       [1mshared [22mMémoire utilisée surtout par tmpfs (Shmem dans [4m/proc/meminfo[24m)
+
+       [1mbuffers[0m
+              Mémoire utilisée par les tampons du noyau (Buffers dans [4m/proc/meminfo[24m)
+
+       [1mcache  [22mMémoire utilisée par le cache de page et les slabs (Cached et SReclaimable dans [4m/proc/meminfo[24m)
+
+       [1mbuff/cache[0m
+              Somme de [1mbuffers [22met [1mcache[0m
+
+       [1mavailable[0m
+              Estimation de la quantité de mémoire disponible pour le démarrage de nouvelles  applications,  sans
+              utiliser  l’espace  d’échange.  Contrairement aux données fournies par les champs [1mcache [22mou [1mfree[22m, ce
+              champ tient compte du cache de page et aussi du fait que tous les slabs de mémoire récupérables se‐
+              ront récupérés à cause des éléments utilisés (MemAvailable dans [4m/proc/meminfo[24m, disponible à  partir
+              du noyau 3.14, émulé à partir du noyau 2.6.27, sinon identique à [1mfree[22m)
+
+[1mOPTIONS[0m
+       [1m-b[22m, [1m--bytes[0m
+              Afficher la quantité de mémoire en octets.
+
+       [1m-k[22m, [1m--kibi[0m
+              Afficher la quantité de mémoire en kibioctets. Il s'agit du comportement par défaut.
+
+       [1m-m[22m, [1m--mebi[0m
+              Afficher la quantité de mémoire en mébioctets.
+
+       [1m-g[22m, [1m--gibi[0m
+              Afficher la quantité de mémoire en gibioctets.
+
+       [1m--tebi [22mAfficher la quantité de mémoire en tébioctets.
+
+       [1m--pebi [22mAfficher la quantité de mémoire en pébioctets.
+
+       [1m--kilo [22mAfficher la quantité de mémoire en kilooctets. Implique --si.
+
+       [1m--mega [22mAfficher la quantité de mémoire en mégaoctets. Implique --si.
+
+       [1m--giga [22mAfficher la quantité de mémoire en gigaoctets. Implique --si.
+
+       [1m--tera [22mAfficher la quantité de mémoire en téraoctets. Implique --si.
+
+       [1m--peta [22mAfficher la quantité de mémoire en pétaoctets. Implique --si.
+
+       [1m-h[22m, [1m--human[0m
+              Montrer  tous  les  champs  automatiquement à l'échelle la plus appropriée : le plus petit nombre à
+              trois chiffres affiché avec l'unité. Les unités suivantes sont utilisées.
+
+                B  = octets
+                Ki = kibioctets
+                Mi = mébioctets
+                Gi = gibioctets
+                Ti = tébioctets
+                Pi = pébioctets
+
+              En l'absence d'unité, pour des quantités de l'ordre du exaoctet de RAM ou  d'espace  d'échange,  le
+              nombre est en tébioctet et les colonnes risquent de ne pas être alignées avec l'en-tête.
+
+       [1m-w[22m, [1m--wide[0m
+              Basculer  en  mode  large. Le mode large produit des lignes plus grandes que 80 caractères. Dans ce
+              mode, [1mbuffers [22met [1mcache [22msont affichés en deux colonnes séparées.
+
+       [1m-c[22m, [1m--count [4m[22mcompte[0m
+              Afficher le résultat [4mcompte[24m fois. Nécessite l'option [1m-s[22m.
+
+       [1m-l[22m, [1m--lohi[0m
+              Afficher les statistiques détaillées pour la mémoire basse et la mémoire haute.
+
+       [1m-L[22m, [1m--line[0m
+              Show output on a single line, often used with the [1m-s [22moption to show memory statistics repeatedly.
+
+       [1m-s[22m, [1m--seconds [4m[22mdélai[0m
+              Afficher le résultat en continu toutes les [4mdélai[24m secondes. Vous pouvez indiquer une valeur décimale
+              pour [4mdélai[24m avec un point ou une virgule décimale. [1musleep[22m(3) est utilisé pour obtenir un délai  avec
+              une résolution en microseconde.
+
+       [1m--si   [22mUtiliser  kilo,  mega,  giga,  etc  (puissances de 1000) au lieu de kibi, mebi, gibi (puissances de
+              1024).
+
+       [1m-t[22m, [1m--total[0m
+              Afficher une ligne contenant les quantités totales des colonnes.
+
+       [1m-v[22m, [1m--committed[0m
+              Display a line showing the memory commit limit and amount of committed/uncommitted memory. The  [1mto‐[0m
+              [1mtal [22mcolumn on this line will display the memory commit limit. This line is relevant if memory over‐
+              commit is disabled.
+
+       [1m--help [22mAfficher l'aide.
+
+       [1m-V[22m, [1m--version[0m
+              Afficher les informations de version.
+
+[1mFICHIERS[0m
+       [4m/proc/meminfo[0m
+              Renseignements sur la mémoire
+
+[1mBOGUES[0m
+       La  valeur  de la colonne  [1mshared [22mn'est pas disponible pour les noyaux antérieurs à la version 2.6.32 (af‐
+       fiche zéro à la place).
+
+       Veuillez signaler les bogues à
+              ]8;;procps@freelists.org\procps@freelists.org]8;;\
+
+[1mVOIR AUSSI[0m
+       [1mps[22m(1), [1mslabtop[22m(1), [1mtop[22m(1), [1mvmstat[22m(8)
+
+procps-ng                                           2023-05-02                                            [4mFREE[24m(1)
